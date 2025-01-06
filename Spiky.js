@@ -23,6 +23,9 @@ function stopTimer() {
 function startGame() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
+   // Autoplay the background music
+   const bgMusic = document.getElementById("bgMusic");
+    bgMusic.play();
   if (username && password) {
     // Make a request to http://localhost:5000/api/auth/teddy-auth
     fetch("https://dems-nft.onrender.com/api/auth/teddy-auth", {
@@ -43,9 +46,7 @@ function startGame() {
           totalSeconds = 0; // Reset Timer
           startTimer();
 
-          // Autoplay the background music
-          const bgMusic = document.getElementById("bgMusic");
-          bgMusic.play();
+         
         } else {
           window.alert("Invalid password");
         }
